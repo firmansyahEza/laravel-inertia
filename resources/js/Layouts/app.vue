@@ -23,22 +23,6 @@
                                 >POSTS</inertia-link
                             >
                         </li>
-                        <li class="nav-item">
-                            <a
-                                class="nav-link"
-                                href="https://santrikoding.com/ebook"
-                                target="_blank"
-                                >EBOOK</a
-                            >
-                        </li>
-                        <li class="nav-item">
-                            <a
-                                class="nav-link"
-                                href="https://santrikoding.com/tutorial-set"
-                                target="_blank"
-                                >TUTORIAL SET</a
-                            >
-                        </li>
                     </ul>
                     <form class="d-flex">
                         <input
