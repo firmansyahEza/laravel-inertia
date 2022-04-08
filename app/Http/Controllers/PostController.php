@@ -41,7 +41,7 @@ class PostController extends Controller
 
     public function edit(Post $post)
     {
-        return Inertia::render('Post/edit', ['post' => $post]);
+        return Inertia::render('Post/Edit', ['post' => $post]);
     }
 
     public function update(Request $request, Post $post)
@@ -58,6 +58,19 @@ class PostController extends Controller
 
         if ($post) {
             return Redirect::route('posts.index')->with('message', 'Data Berhasil Diupdate!');
+        }
+    }
+
+    public function destroy($id)
+    {
+        //find post by ID
+        $post = Post::findOrfail($id);
+
+        //delete post
+        $post->delete();
+
+        if ($post) {
+            return Redirect::route('posts.index')->with('message', 'Data Berhasil Dihapus!');
         }
     }
 }
