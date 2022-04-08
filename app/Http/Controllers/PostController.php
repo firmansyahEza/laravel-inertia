@@ -38,4 +38,9 @@ class PostController extends Controller
             return Redirect::route('posts.index')->with('message', 'Data Berhasil Disimpan!');
         }
     }
+
+    public function edit(Post $post)
+    {
+        return Inertia::render('Post/edit', ['post' => $post]);
+    }
 }
