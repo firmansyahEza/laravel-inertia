@@ -30,10 +30,16 @@
                             <td>{{ post.content }}</td>
                             <td class="text-center">
                                 <inertia-link
-                                    :href="`/posts/${post.id}/edit`"
+                                    :href="`posts/${post.id}/edit`"
                                     class="btn btn-sm btn-primary me-2"
-                                    >Edit</inertia-link
+                                    >EDIT</inertia-link
                                 >
+                                <button
+                                    @click.prevent="deletePost(`${post.id}`)"
+                                    class="btn btn-sm btn-danger"
+                                >
+                                    DELETE
+                                </button>
                             </td>
                         </tr>
                     </tbody>
@@ -47,6 +53,8 @@
 //import layout
 import LayoutApp from "../../Layouts/app.vue";
 
+import { Inertia } from "@inertiajs/inertia";
+
 export default {
     //layout
     layout: LayoutApp,
@@ -54,6 +62,16 @@ export default {
     //props
     props: {
         posts: Array, // <- nama props yang dibuat di controller saat parsing data
+    },
+    setup() {
+        //method deletePost
+        function deletePost(id) {
+            Inertia.delete(`/posts/${id}`);
+        }
+
+        return {
+            deletePost,
+        };
     },
 };
 </script>
