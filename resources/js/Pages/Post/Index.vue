@@ -28,7 +28,13 @@
                         <tr v-for="post in posts" :key="post.id">
                             <td>{{ post.title }}</td>
                             <td>{{ post.content }}</td>
-                            <td class="text-center"></td>
+                            <td class="text-center">
+                                <inertia-link
+                                    :href="`/posts/${post.id}/edit`"
+                                    class="btn btn-sm btn-primary me-2"
+                                    >Edit</inertia-link
+                                >
+                            </td>
                         </tr>
                     </tbody>
                 </table>
