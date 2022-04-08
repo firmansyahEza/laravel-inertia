@@ -43,4 +43,21 @@ class PostController extends Controller
     {
         return Inertia::render('Post/edit', ['post' => $post]);
     }
+
+    public function update(Request $request, Post $post)
+    {
+        $request->validate([
+            'title' => 'required',
+            'content' => 'required'
+        ]);
+
+        $post->update([
+            'title' => $request->title,
+            'content' => $request->content
+        ]);
+
+        if ($post) {
+            return Redirect::route('posts.index')->with('message', 'Data Berhasil Diupdate!');
+        }
+    }
 }
